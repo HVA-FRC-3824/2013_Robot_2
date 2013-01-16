@@ -1,0 +1,9 @@
+#Build
+*.o
+*.d
+
+#Backup
+*~
+
+#Build folder
+PPC603gnu
