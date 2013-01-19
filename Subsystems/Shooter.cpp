@@ -41,4 +41,3 @@ void Shooter::SetWheelSpeed(float speed)
 	
 	shooterVictor->Set(speed);
 }
-
