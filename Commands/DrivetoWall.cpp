@@ -17,17 +17,20 @@ DrivetoWall::DrivetoWall(){
 }
 // Called just before this Command runs the first time
 void DrivetoWall::Initialize() {
-	Robot::drivetrain->tankDrive->TankDrive(LEFT_MOTOR_POWER, RIGHT_MOTOR_POWER);
+
 }
 // Called repeatedly when this Command is scheduled to run
 void DrivetoWall::Execute() {
 	printf("******* In Execute *******\n");
-	
-	distance = Robot::drivetrain->ultrasonicSensor->GetValue();
+	Robot::drivetrain->TankDrive(LEFT_MOTOR_POWER, RIGHT_MOTOR_POWER); // Starts motors
+
 	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool DrivetoWall::IsFinished() {
+	
+	distance = Robot::drivetrain->GetDistance();
+	
 	if(distance <= STOPPING_DISTANCE)
 		{
 			printf("Has hit the right distance.\n");

@@ -16,7 +16,7 @@
  *
  * @author ExampleAuthor
  */
-class Drivetrain: public Subsystem {
+class Drivetrain: public Subsystem, public PIDOutput {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
@@ -30,5 +30,8 @@ public:
 	Drivetrain();
 	void InitDefaultCommand();
 	void TankDrive(Joystick *right, Joystick *left);
+	void TankDrive(float right, float left);
+	float GetDistance();
+
 };
 #endif

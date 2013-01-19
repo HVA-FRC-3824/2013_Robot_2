@@ -34,3 +34,13 @@ void Drivetrain::TankDrive(Joystick *right, Joystick *left)
 {
 	tankDrive->TankDrive(left, right);
 }
+
+void Drivetrain::TankDrive(float right, float left)
+{
+	tankDrive->TankDrive(left, right);
+}
+
+float Drivetrain::GetDistance()
+{
+	return ultrasonicSensor->GetValue() * UNITS_TO_INCHES;
+}

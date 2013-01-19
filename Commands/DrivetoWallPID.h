@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 
-
-#ifndef DRIVE_TO_WALL_H
-#define DRIVE_TO_WALL_H
-
+#ifndef DRIVE_TO_WALL_PID_H
+#define DRIVE_TO_WALL_PID_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -21,15 +19,32 @@
  *
  * @author ExampleAuthor
  */
-class DrivetoWall: public Command {
+class DrivetoWallPID: public Command 
+{
+private:
+   float m_Pgain;   // static PID parameters to allow setting
+   float m_Igain;   // from any class instance
+   float m_Dgain;
+   float m_startGyroAngle;
+   float m_setPoint;
+   float m_threshold;
+   bool m_inRange;
+   PIDController *m_PIDcontroller;
+   Timer *m_timer;
+
 public:
-	DrivetoWall();
+	DrivetoWallPID();
+	~DrivetoWallPID();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-	float distance;
+	
+	float GetPIDError();
+	bool IsOnTarget();
+	void SetThreshold(float threshold);
+	void SetPID(float p, float i, float d);
 };
 
 #endif

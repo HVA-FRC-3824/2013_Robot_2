@@ -20,7 +20,7 @@ void DisplaySensors::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void DisplaySensors::Execute() {
-	SmartDashboard::PutNumber("Ultrasonic:",Robot::drivetrain->ultrasonicSensor->GetValue());
+	SmartDashboard::PutNumber("Ultrasonic inches:",Robot::drivetrain->GetDistance());
 	
 }
 // Make this return true when this Command no longer needs to run execute()
