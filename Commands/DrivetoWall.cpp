@@ -17,13 +17,11 @@ DrivetoWall::DrivetoWall(){
 }
 // Called just before this Command runs the first time
 void DrivetoWall::Initialize() {
-
 }
 // Called repeatedly when this Command is scheduled to run
 void DrivetoWall::Execute() {
 	printf("******* In Execute *******\n");
 	Robot::drivetrain->TankDrive(LEFT_MOTOR_POWER, RIGHT_MOTOR_POWER); // Starts motors
-
 	
 }
 // Make this return true when this Command no longer needs to run execute()

@@ -17,7 +17,7 @@ ShooterStop::ShooterStop() {
 }
 // Called just before this Command runs the first time
 void ShooterStop::Initialize() {
-	
+	Robot::shooter->Stop();
 }
 // Called repeatedly when this Command is scheduled to run
 void ShooterStop::Execute() {
@@ -29,7 +29,7 @@ bool ShooterStop::IsFinished() {
 }
 // Called once after isFinished returns true
 void ShooterStop::End() {
-	Robot::shooter->SetWheelSpeed(0.0f);
+
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

@@ -32,6 +32,7 @@ public:
 	void TankDrive(Joystick *right, Joystick *left);
 	void TankDrive(float right, float left);
 	float GetDistance();
-
+	
+	void PIDWrite(float output);
 };
 #endif
