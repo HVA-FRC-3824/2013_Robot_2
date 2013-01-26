@@ -48,6 +48,10 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	if (autonomousCommand != NULL)
 		Scheduler::GetInstance()->Run();
+	
+	SmartDashboard::PutNumber("Encoder Value Gear", Robot::shooter->shooterEncoder->Get());
+	SmartDashboard::PutNumber("Encoder period", Robot::shooter->shooterEncoder->GetPeriod());
+	SmartDashboard::PutNumber("Encoder RPM", Robot::shooter->GetRPM());
 }
 void Robot::TestPeriodic() {
 	lw->Run();

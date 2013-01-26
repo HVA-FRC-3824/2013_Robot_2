@@ -17,19 +17,19 @@ TeleopDrive::TeleopDrive() {
 }
 // Called just before this Command runs the first time
 void TeleopDrive::Initialize() {
-	printf("In void TeleopDrive::Initialize()\n");
 	
 }
 // Called repeatedly when this Command is scheduled to run
 void TeleopDrive::Execute() {
-	printf("In void TeleopDrive::Execute()\n");
 	// Read joysticks and write values to motors
 	Robot::drivetrain->TankDrive(Robot::oi->getDriveJoystickRight(), Robot::oi->getDriveJoystickLeft());
+	
+	// Gets value from shooter encoder
+	SmartDashboard::PutBoolean("Shooter Encoder: ", Robot::shooter->shooterEncoder->Get());
 	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TeleopDrive::IsFinished() {
-	printf("In void TeleopDrive::IsFinished()\n");
 	return false;
 }
 // Called once after isFinished returns true
